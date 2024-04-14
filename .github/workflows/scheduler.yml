@@ -14,6 +14,7 @@ jobs:
       - name: Check Secrets
         run: |
           echo "github.server_url = ${{ github.server_url }}"
+          echo "github.repository = ${{ github.repository }}"
 
       - name: Checkout to '${{ github.ref }}'
         uses: actions/checkout@v4
@@ -22,7 +23,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up NodeJS
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
 
