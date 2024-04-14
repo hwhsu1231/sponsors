@@ -11,27 +11,41 @@ jobs:
   update-sponsors:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout to '${{ github.ref }}'
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
 
-      - name: Set node
+      - name: Set up NodeJS
         uses: actions/setup-node@v3
         with:
           node-version: lts/*
 
-      - run: npx pnpm i
+      - name: Install the Packages
+        shell: bash
+        run: npx pnpm install
 
-      - name: Update sponsors
+      - name: Update Sponsors
+        shell: bash
         run: npm run build
         env:
-          SPONSORKIT_GITHUB_TOKEN: ${{ secrets.SPONSORKIT_GITHUB_TOKEN }}
-          SPONSORKIT_GITHUB_LOGIN: ${{ secrets.SPONSORKIT_GITHUB_LOGIN }}
-          SPONSORKIT_AFDIAN_USER_ID: ${{ secrets.SPONSORKIT_AFDIAN_USER_ID }}
-          SPONSORKIT_AFDIAN_TOKEN: ${{ secrets.SPONSORKIT_AFDIAN_TOKEN }}
+          SPONSORKIT_GITHUB_LOGIN:    ${{ secrets.SPONSORKIT_GITHUB_LOGIN }}
+          SPONSORKIT_GITHUB_TOKEN:    ${{ secrets.SPONSORKIT_GITHUB_TOKEN }}
+          SPONSORKIT_AFDIAN_USER_ID:  ${{ secrets.SPONSORKIT_AFDIAN_USER_ID }}
+          SPONSORKIT_AFDIAN_TOKEN:    ${{ secrets.SPONSORKIT_AFDIAN_TOKEN }}
 
-      - name: Commit
+      - name: Add and Commit the Changes
+        id: acc
         uses: EndBug/add-and-commit@v4
         with:
-          message: "chore: update sponsors.svg"
-          add: "sponsors.*"
+          message: 'chore: update sponsors.svg'
+          add: './static/*'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check Outputs of the Commit
+        if: steps.acc.outputs.committed == 'true'
+        shell: bash
+        run: |
+          echo "Commit's URL = ${{ github.server_url }}/${{ github.repository }}/commit/${{ steps.acc.outputs.commit_long_sha }}"
+          echo "Commit's SHA = ${{ steps.acc.outputs.commit_long_sha }}"
