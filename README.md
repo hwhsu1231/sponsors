@@ -1,5 +1,10 @@
 # Sponsors
 
+```bash
+npx pnpm install
+npm run build
+```
+
 ## Sponsors SVG
 
 <!-- <p align="center">
