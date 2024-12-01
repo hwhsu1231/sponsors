@@ -8,7 +8,7 @@
   </a>
 </p> -->
 
-1
+### JsDelivr CDN
 
 <p align="center">
   <a href="https://cdn.jsdelivr.net/gh/hwhsu1231/sponsors/static/sponsors.svg">
@@ -16,7 +16,7 @@
   </a>
 </p>
 
-2
+### Relative Path
 
 <p align="center">
   <img src='./static/sponsors.svg'/>
