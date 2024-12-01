@@ -1,4 +1,4 @@
-import { BadgePreset, defineConfig, presets } from 'sponsorkit'
+import { BadgePreset, defineConfig, tierPresets } from 'sponsorkit'
 
 
 const past: BadgePreset = {
@@ -32,57 +32,62 @@ export default defineConfig({
     },
     {
       title: 'Sponsors',
-      preset: presets.xs,
+      preset: tierPresets.xs,
     },
     {
       title: 'Bronze Sponsors',
       monthlyDollars: 10,
-      preset: presets.small,
+      preset: tierPresets.small,
     },
     {
       title: 'Silver Sponsors',
       monthlyDollars: 40,
-      preset: presets.base,
+      preset: tierPresets.base,
     },
     {
       title: 'Gold Sponsors',
       monthlyDollars: 160,
-      preset: presets.medium,
+      preset: tierPresets.medium,
     },
     {
       title: 'Platinum Sponsors',
       monthlyDollars: 640,
-      preset: presets.large,
+      preset: tierPresets.large,
     },
     {
       title: 'Diamond Sponsors',
       monthlyDollars: 2560,
-      preset: presets.xl,
+      preset: tierPresets.xl,
     }
   ],
 
   renders: [
     {
       name: 'sponsors',
-      width: 800
+      width: 800,
+      renderer: 'tiers'
     },
     {
       name: 'sponsors-wide',
-      width: 1800
+      width: 1800,
+      renderer: 'tiers'
     },
     {
       name: 'sponsors-part1',
       width: 800,
+      renderer: 'tiers',
       filter: (sponsor) => sponsor.monthlyDollars >= 9.9
     },
     {
       name: 'sponsors-part2',
       width: 800,
+      renderer: 'tiers',
       filter: (sponsor) => sponsor.monthlyDollars < 9.9 && sponsor.monthlyDollars >= 0
     },
     {
       name: 'sponsors-past',
       width: 800,
+      renderer: 'tiers',
       filter: (sponsor) => sponsor.monthlyDollars < 0
     },
     {
