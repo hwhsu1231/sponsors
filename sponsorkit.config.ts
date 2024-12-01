@@ -20,10 +20,6 @@ export default defineConfig({
       preset: past,
     },
     {
-      title: 'Backers',
-      preset: presets.small,
-    },
-    {
       title: 'Sponsors',
       monthlyDollars: 10,
       preset: {
@@ -39,17 +35,17 @@ export default defineConfig({
     },
     {
       title: 'Silver Sponsors',
-      monthlyDollars: 50,
+      monthlyDollars: 40,
       preset: presets.medium,
     },
     {
       title: 'Gold Sponsors',
-      monthlyDollars: 100,
+      monthlyDollars: 160,
       preset: presets.large,
     },
     {
       title: 'Platinum Sponsors',
-      monthlyDollars: 500,
+      monthlyDollars: 640,
       preset: presets.xl,
     }
   ]
