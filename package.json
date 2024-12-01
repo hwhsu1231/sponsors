@@ -3,6 +3,7 @@
     "build": "sh build.sh"
   },
   "devDependencies": {
+    "@types/node": "^22.9.0",
     "sponsorkit": "^0.16.0"
   }
 }
