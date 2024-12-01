@@ -13,6 +13,14 @@ const past: BadgePreset = {
 }
 
 export default defineConfig({
+  providers: [
+    'patreon',
+    'afdian',
+  ],
+  afdian: {
+    exechangeRate: 1,
+  },
+  formats: [ 'json', 'svg', 'png' ],
   tiers: [
     {
       title: 'Past Sponsors',
@@ -49,10 +57,4 @@ export default defineConfig({
       preset: presets.xl,
     }
   ],
-
-
-  formats: ['svg', 'png'],
-  afdian: {
-    exechangeRate: 4,
-  },
 })
