@@ -15,14 +15,14 @@ npm run build
 
 ### JsDelivr CDN
 
-<p align="center">
+<div align="center">
   <a href="https://cdn.jsdelivr.net/gh/hwhsu1231/sponsors/static/sponsors.svg">
     <img src='https://cdn.jsdelivr.net/gh/hwhsu1231/sponsors/static/sponsors.svg'/>
   </a>
-</p>
+</div>
 
 ### Relative Path
 
-<p align="center">
+<div align="center">
   <img src='./static/sponsors.svg'/>
-</p>
+</div>
