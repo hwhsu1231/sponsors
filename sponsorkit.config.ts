@@ -18,9 +18,12 @@ export default defineConfig({
     'afdian',
   ],
   afdian: {
-    exechangeRate: 1,
+    exechangeRate: 4,
   },
+
+  outputDir: 'static',
   formats: [ 'json', 'svg', 'png' ],
+
   tiers: [
     {
       title: 'Past Sponsors',
@@ -57,4 +60,39 @@ export default defineConfig({
       preset: presets.xl,
     }
   ],
+
+  renders: [
+    {
+      name: 'sponsors',
+      width: 800
+    },
+    {
+      name: 'sponsors-wide',
+      width: 1800
+    },
+    {
+      name: 'sponsors-part1',
+      width: 800,
+      filter: (sponsor) => sponsor.monthlyDollars >= 9.9
+    },
+    {
+      name: 'sponsors-part2',
+      width: 800,
+      filter: (sponsor) => sponsor.monthlyDollars < 9.9 && sponsor.monthlyDollars >= 0
+    },
+    {
+      name: 'sponsors-past',
+      width: 800,
+      filter: (sponsor) => sponsor.monthlyDollars < 0
+    },
+    {
+      name: 'sponsors-circles',
+      width: 1000,
+      includePastSponsors: true,
+      renderer: 'circles',
+      circles: {
+        radiusPast: 3
+      }
+    }
+  ]
 })
