@@ -31,31 +31,31 @@ export default defineConfig({
       preset: past,
     },
     {
-      title: 'Sponsors',          /* 0~9 */
+      title: 'Sponsors',          /* 5, Range: 0~9 */
       preset: tierPresets.xs,
     },
     {
-      title: 'Bronze Sponsors',   /* 10~39 */
+      title: 'Bronze Sponsors',   /* 20, Range: 10~39 */
       monthlyDollars: 10,
       preset: tierPresets.small,
     },
     {
-      title: 'Silver Sponsors',   /* 40~159 */
+      title: 'Silver Sponsors',   /* 80, Range: 40~159 */
       monthlyDollars: 40,
       preset: tierPresets.base,
     },
     {
-      title: 'Gold Sponsors',     /* 160~639 */
+      title: 'Gold Sponsors',     /* 320, Range: 160~639 */
       monthlyDollars: 160,
       preset: tierPresets.medium,
     },
     {
-      title: 'Platinum Sponsors', /* 640~2559 */
+      title: 'Platinum Sponsors', /* 1280, Range: 640~2559 */
       monthlyDollars: 640,
       preset: tierPresets.large,
     },
     {
-      title: 'Diamond Sponsors',  /* 2560~ */
+      title: 'Diamond Sponsors',  /* 5120, Range: 2560~ */
       monthlyDollars: 2560,
       preset: tierPresets.xl,
     }
